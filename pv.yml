@@ -13,25 +13,8 @@ spec:
   gcePersistentDisk:
     pdName: mysql-pv
     fsType: ext4
-    readOnly: true
-
+    readOnly: true  
 ---
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: mysql-pvc
-spec:
-  accessModes:
-    - ReadOnlyMany
-  resources:
-    requests:
-      storage: 5Gi
-  selector:
-    matchLabels:
-      name: mysql-pv
-
----
-# redis
 kind: PersistentVolume
 apiVersion: v1
 metadata:
@@ -48,25 +31,7 @@ spec:
     pdName: redis-pv
     fsType: ext4
     readOnly: true
-
 ---
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: redis-pvc
-spec:
-  accessModes:
-    - ReadOnlyMany
-  resources:
-    requests:
-      storage: 5Gi
-  selector:
-    matchLabels:
-      name: redis-pv
-
-
----
-# file data
 kind: PersistentVolume
 apiVersion: v1
 metadata:
@@ -83,18 +48,3 @@ spec:
     pdName: file-data-pv
     fsType: ext4
     readOnly: true
-
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: file-data-pvc
-spec:
-  accessModes:
-    - ReadOnlyMany
-  resources:
-    requests:
-      storage: 5Gi
-  selector:
-    matchLabels:
-      name: file-data-pv
