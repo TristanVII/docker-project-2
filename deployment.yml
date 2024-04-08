@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          build: mariadb:10.6.4-focal
+          image: mariadb:10.6.4-focal
           ports:
             - containerPort: 3306
           envFrom:
@@ -50,7 +50,7 @@ spec:
     spec:
       containers:
         - name: auth
-          build: ../video_streaming_app/auth
+          image: tristan007/3496-auth:latest
           ports:
             - containerPort: 3000
           envFrom:
@@ -77,7 +77,7 @@ spec:
     spec:
       containers:
         - name: redis
-          build: redis:alpine
+          image: redis:alpine
           ports:
             - containerPort: 6379
           volumeMounts:
@@ -106,7 +106,7 @@ spec:
     spec:
       containers:
         - name: database
-          build: ../video_streaming_app/database
+          image: tristan007/3496-database:latest
           ports:
             - containerPort: 8000
           envFrom:
@@ -133,7 +133,7 @@ spec:
     spec:
       containers:
         - name: filesystem
-          build: ../video_streaming_app/file_system
+          image: tristan007/3496-file-system:latest
           ports:
             - containerPort: 8070
           envFrom:
@@ -167,7 +167,7 @@ spec:
     spec:
       containers:
         - name: upload
-          build: ../video_streaming_app/upload_video
+          image: tristan007/3496-upload-video:latest
           ports:
             - containerPort: 80
           envFrom:
@@ -194,7 +194,7 @@ spec:
     spec:
       containers:
         - name: stream
-          build: ../video_streaming_app/video_streaming
+          image: tristan007/3496-video-streaming:latest
           ports:
             - containerPort: 80
           envFrom:
