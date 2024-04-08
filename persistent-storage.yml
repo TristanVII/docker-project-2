@@ -1,71 +1,100 @@
----
-apiVersion: v1
 kind: PersistentVolume
+apiVersion: v1
 metadata:
   name: mysql-pv
+  labels:
+    name: mysql-pv
 spec:
   capacity:
-    storage: 1Gi
+    storage: 5Gi
+  storageClassName: standard
   accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /data/mysql
+    - ReadOnlyMany
+  gcePersistentDisk:
+    pdName: mysql-pv
+    fsType: ext4
+    readOnly: true
+
 ---
-apiVersion: v1
 kind: PersistentVolumeClaim
+apiVersion: v1
 metadata:
   name: mysql-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi
+  selector:
+    matchLabels:
+      name: mysql-pv
+
 ---
----
-apiVersion: v1
+# redis
 kind: PersistentVolume
+apiVersion: v1
 metadata:
   name: redis-pv
+  labels:
+    name: redis-pv
 spec:
   capacity:
-    storage: 1Gi
+    storage: 5Gi
+  storageClassName: standard
   accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /data/redis
----  
-apiVersion: v1
+    - ReadOnlyMany
+  gcePersistentDisk:
+    pdName: redis-pv
+    fsType: ext4
+    readOnly: true
+
+---
 kind: PersistentVolumeClaim
+apiVersion: v1
 metadata:
   name: redis-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi
+  selector:
+    matchLabels:
+      name: redis-pv
+
+
 ---
----
-apiVersion: v1
+# file data
 kind: PersistentVolume
+apiVersion: v1
 metadata:
   name: file-data-pv
+  labels:
+    name: file-data-pv
 spec:
   capacity:
-    storage: 1Gi
+    storage: 5Gi
+  storageClassName: standard
   accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /data/files
+    - ReadOnlyMany
+  gcePersistentDisk:
+    pdName: file-data-pv
+    fsType: ext4
+    readOnly: true
+
 ---
-apiVersion: v1
 kind: PersistentVolumeClaim
+apiVersion: v1
 metadata:
   name: file-data-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi
+  selector:
+    matchLabels:
+      name: file-data-pv
