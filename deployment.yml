@@ -50,7 +50,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: tristan007/3496-auth:latest
+          image: tristanvii/auth:latest
           ports:
             - containerPort: 3000
           envFrom:
@@ -106,7 +106,7 @@ spec:
     spec:
       containers:
         - name: database
-          image: tristan007/3496-database:latest
+          image: tristanvii/database:latest
           ports:
             - containerPort: 8000
           envFrom:
@@ -133,7 +133,7 @@ spec:
     spec:
       containers:
         - name: filesystem
-          image: tristan007/3496-file-system:latest
+          image: tristanvii/fs:latest
           ports:
             - containerPort: 8070
           envFrom:
@@ -167,7 +167,7 @@ spec:
     spec:
       containers:
         - name: upload
-          image: tristan007/3496-upload-video:latest
+          image: tristanvii/uv:latest
           ports:
             - containerPort: 80
           envFrom:
@@ -194,7 +194,7 @@ spec:
     spec:
       containers:
         - name: stream
-          image: tristan007/3496-video-streaming:latest
+          image: tristanvii/vs:latest
           ports:
             - containerPort: 80
           envFrom:
