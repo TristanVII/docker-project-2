@@ -10,11 +10,7 @@ spec:
     name: auth-deployment
   minReplicas: 1
   maxReplicas: 10
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        targetAverageUtilization: 50
+  targetCPUUtilizationPercentage: 50
 
 ---
 # upload
@@ -29,11 +25,7 @@ spec:
     name: upload-deployment
   minReplicas: 1
   maxReplicas: 10
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        targetAverageUtilization: 50
+  targetCPUUtilizationPercentage: 50
 
 ---
 # stream
@@ -48,11 +40,7 @@ spec:
     name: stream-deployment
   minReplicas: 1
   maxReplicas: 10
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        targetAverageUtilization: 50
+  targetCPUUtilizationPercentage: 50
 
 ---
 # database
@@ -67,8 +55,4 @@ spec:
     name: database-deployment
   minReplicas: 1
   maxReplicas: 10
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        targetAverageUtilization: 50
+  targetCPUUtilizationPercentage: 50
